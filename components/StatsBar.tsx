@@ -24,7 +24,7 @@ const item = {
 
 export default function StatsBar() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
       <motion.div
         variants={container}
         initial="hidden"

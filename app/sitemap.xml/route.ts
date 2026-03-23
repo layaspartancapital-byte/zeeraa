@@ -1,47 +1,138 @@
 import { services, industries, locations } from "@/lib/slugs";
+import fs from "fs";
+import path from "path";
+
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://zeeraa.com";
 
+function getToday(): string {
+  return new Date().toISOString().split("T")[0];
+}
+
+function getBlogSlugs(): string[] {
+  try {
+    const dir = path.join(process.cwd(), "content", "blog");
+    return fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith(".md"))
+      .map((f) => f.replace(/\.md$/, ""));
+  } catch {
+    return [];
+  }
+}
+
+function getCaseStudySlugs(): string[] {
+  try {
+    const dir = path.join(process.cwd(), "content", "case-studies");
+    return fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith(".md"))
+      .map((f) => f.replace(/\.md$/, ""));
+  } catch {
+    return [];
+  }
+}
+
+interface SitemapEntry {
+  url: string;
+  priority: string;
+  changefreq: string;
+  lastmod: string;
+}
+
 function generateSitemapXml(): string {
-  const staticPages = [
-    { url: "/", priority: "1.0", changefreq: "weekly" },
-    { url: "/about", priority: "0.8", changefreq: "monthly" },
-    { url: "/contact", priority: "0.8", changefreq: "monthly" },
-    { url: "/blog", priority: "0.8", changefreq: "weekly" },
-    { url: "/case-studies", priority: "0.8", changefreq: "monthly" },
-    { url: "/team", priority: "0.6", changefreq: "monthly" },
-    { url: "/privacy", priority: "0.3", changefreq: "yearly" },
-    { url: "/terms", priority: "0.3", changefreq: "yearly" },
-  ];
+  const today = getToday();
+  const blogSlugs = getBlogSlugs();
+  const caseStudySlugs = getCaseStudySlugs();
 
-  const servicePages = services.map((s) => ({
-    url: `/services/${s.slug}`,
-    priority: "0.8",
-    changefreq: "monthly",
-  }));
+  const entries: SitemapEntry[] = [];
 
-  const industryPages = industries.map((i) => ({
-    url: `/industries/${i.slug}`,
+  // Priority 1.0
+  entries.push(
+    { url: "/", priority: "1.0", changefreq: "daily", lastmod: today },
+    { url: "/contact", priority: "1.0", changefreq: "weekly", lastmod: today }
+  );
+
+  // Priority 0.9 — Services
+  for (const s of services) {
+    entries.push({
+      url: `/services/${s.slug}`,
+      priority: "0.9",
+      changefreq: "weekly",
+      lastmod: today,
+    });
+  }
+
+  // Priority 0.9 — Industries
+  for (const i of industries) {
+    entries.push({
+      url: `/industries/${i.slug}`,
+      priority: "0.9",
+      changefreq: "weekly",
+      lastmod: today,
+    });
+  }
+
+  // Priority 0.8 — Locations
+  for (const l of locations) {
+    entries.push({
+      url: `/locations/${l.slug}`,
+      priority: "0.8",
+      changefreq: "weekly",
+      lastmod: today,
+    });
+  }
+
+  // Priority 0.8 — Static pages
+  entries.push(
+    { url: "/about", priority: "0.8", changefreq: "monthly", lastmod: today },
+    { url: "/case-studies", priority: "0.8", changefreq: "monthly", lastmod: today },
+    { url: "/team", priority: "0.8", changefreq: "monthly", lastmod: today }
+  );
+
+  // Priority 0.7 — Blog
+  entries.push({
+    url: "/blog",
     priority: "0.7",
-    changefreq: "monthly",
-  }));
+    changefreq: "weekly",
+    lastmod: today,
+  });
 
-  const locationPages = locations.map((l) => ({
-    url: `/locations/${l.slug}`,
-    priority: "0.7",
-    changefreq: "monthly",
-  }));
+  for (const slug of blogSlugs) {
+    entries.push({
+      url: `/blog/${slug}`,
+      priority: "0.7",
+      changefreq: "monthly",
+      lastmod: today,
+    });
+  }
 
-  const allPages = [...staticPages, ...servicePages, ...industryPages, ...locationPages];
+  // Priority 0.7 — Case study pages
+  for (const slug of caseStudySlugs) {
+    entries.push({
+      url: `/case-studies/${slug}`,
+      priority: "0.7",
+      changefreq: "monthly",
+      lastmod: today,
+    });
+  }
+
+  // Priority 0.5 — Legal/sitemap
+  entries.push(
+    { url: "/privacy", priority: "0.5", changefreq: "yearly", lastmod: today },
+    { url: "/terms", priority: "0.5", changefreq: "yearly", lastmod: today },
+    { url: "/sitemap", priority: "0.5", changefreq: "monthly", lastmod: today }
+  );
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allPages
+${entries
   .map(
-    (page) => `  <url>
-    <loc>${SITE_URL}${page.url}</loc>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
+    (e) => `  <url>
+    <loc>${SITE_URL}${e.url}</loc>
+    <lastmod>${e.lastmod}</lastmod>
+    <changefreq>${e.changefreq}</changefreq>
+    <priority>${e.priority}</priority>
   </url>`
   )
   .join("\n")}
@@ -53,6 +144,7 @@ export async function GET() {
   return new Response(xml, {
     headers: {
       "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=3600, s-maxage=3600",
     },
   });
 }

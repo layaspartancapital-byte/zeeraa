@@ -29,7 +29,7 @@ export default function WhatWeDo() {
   const { ref, controls } = useScrollReveal();
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <motion.div
         ref={ref}
         initial="hidden"
@@ -38,6 +38,7 @@ export default function WhatWeDo() {
           hidden: {},
           visible: { transition: { staggerChildren: 0.15 } },
         }}
+        className="max-w-7xl mx-auto"
       >
         <motion.div
           variants={{
@@ -46,10 +47,10 @@ export default function WhatWeDo() {
           }}
           className="text-center mb-16"
         >
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-[#0A0A0A] mb-4">
             What We Do
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-[#555] text-lg max-w-2xl mx-auto">
             Zeeraa handles your entire eCommerce operation in three simple
             phases.
           </p>
@@ -67,15 +68,15 @@ export default function WhatWeDo() {
                   transition: { duration: 0.5 },
                 },
               }}
-              className="glass-card p-8 text-center hover:shadow-glow transition-shadow duration-300"
+              className="bg-white border border-[#E5E7EB] rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                 <step.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-syne text-xl font-bold text-white mb-3">
+              <h3 className="font-syne text-xl font-bold text-[#0A0A0A] mb-3">
                 {step.title}
               </h3>
-              <p className="text-text-muted">{step.description}</p>
+              <p className="text-[#555]">{step.description}</p>
             </motion.div>
           ))}
         </div>

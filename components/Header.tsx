@@ -7,60 +7,91 @@ import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { useBookingModal } from "@/hooks/useBookingModal";
 
 /* ------------------------------------------------------------------ */
-/*  Data                                                               */
+/*  Data — all slugs match /lib/slugs.ts                               */
 /* ------------------------------------------------------------------ */
 
 const serviceCategories = [
   {
     title: "Platform Management",
-    href: "/services#platform-management",
     items: [
-      { label: "Amazon Account Management", href: "/services/amazon-account-management" },
-      { label: "Shopify Management", href: "/services/shopify-management" },
-      { label: "Walmart Marketplace", href: "/services/walmart-marketplace" },
-      { label: "eBay Management", href: "/services/ebay-management" },
-      { label: "TikTok Shop", href: "/services/tiktok-shop" },
-      { label: "Etsy Management", href: "/services/etsy-management" },
+      { label: "Amazon Store Management", href: "/services/amazon-store-management" },
+      { label: "Shopify Store Development", href: "/services/shopify-store-development" },
+      { label: "Walmart Marketplace", href: "/services/walmart-marketplace-management" },
+      { label: "TikTok Shop Management", href: "/services/tiktok-shop-management" },
+      { label: "eBay Store Optimization", href: "/services/ebay-store-optimization" },
+      { label: "Etsy Shop Management", href: "/services/etsy-shop-management" },
     ],
   },
   {
     title: "Advertising & SEO",
-    href: "/services#advertising-seo",
     items: [
-      { label: "Amazon PPC Management", href: "/services/amazon-ppc-management" },
+      { label: "Amazon PPC & DSP", href: "/services/amazon-ppc-dsp-advertising" },
       { label: "eCommerce SEO", href: "/services/ecommerce-seo" },
-      { label: "Google Shopping Ads", href: "/services/google-shopping-ads" },
-      { label: "Social Media Advertising", href: "/services/social-media-advertising" },
+      { label: "Google Shopping & Listings", href: "/services/google-shopping-free-listings" },
+      { label: "Brand Registry & IP", href: "/services/brand-registry-ip-protection" },
     ],
   },
   {
     title: "Strategy & Growth",
-    href: "/services#strategy-growth",
     items: [
       { label: "Product Listing Optimization", href: "/services/product-listing-optimization" },
-      { label: "Brand Registry & Protection", href: "/services/brand-registry" },
-      { label: "FBA / FBM Strategy", href: "/services/fba-fbm-strategy" },
-      { label: "Marketplace Launch Strategy", href: "/services/marketplace-launch-strategy" },
+      { label: "Amazon FBA Management", href: "/services/amazon-fba-management" },
+      { label: "Amazon FBM Management", href: "/services/amazon-fbm-management" },
+      { label: "Shopify Plus Enterprise", href: "/services/shopify-plus-enterprise" },
     ],
   },
 ];
 
-const industries = [
+const headerIndustries = [
   { label: "Health & Wellness", href: "/industries/health-wellness" },
-  { label: "Beauty & Personal Care", href: "/industries/beauty-personal-care" },
-  { label: "Home & Garden", href: "/industries/home-garden" },
-  { label: "Electronics & Tech", href: "/industries/electronics-tech" },
+  { label: "Beauty & Skincare", href: "/industries/beauty-skincare" },
+  { label: "Electronics & Gadgets", href: "/industries/electronics" },
   { label: "Fashion & Apparel", href: "/industries/fashion-apparel" },
-  { label: "Food & Beverage", href: "/industries/food-beverage" },
+  { label: "Home & Kitchen", href: "/industries/home-kitchen" },
   { label: "Sports & Outdoors", href: "/industries/sports-outdoors" },
+  { label: "Pet Supplies", href: "/industries/pet-supplies" },
   { label: "Baby & Kids", href: "/industries/baby-kids" },
+  { label: "Food & Beverage", href: "/industries/food-beverage" },
+  { label: "Supplements & Nutrition", href: "/industries/supplements-nutrition" },
+  { label: "Automotive", href: "/industries/automotive" },
+  { label: "Toys & Games", href: "/industries/toys-games" },
+  { label: "Jewelry & Accessories", href: "/industries/jewelry-accessories" },
+  { label: "Tools & Hardware", href: "/industries/tools-hardware" },
+  { label: "Garden & Outdoor", href: "/industries/garden-outdoor" },
+  { label: "Industrial & B2B", href: "/industries/industrial-b2b" },
+  { label: "Arts & Crafts", href: "/industries/arts-crafts" },
+  { label: "Cleaning & Household", href: "/industries/cleaning-household" },
+  { label: "Books & Media", href: "/industries/books-media" },
+  { label: "Office Supplies", href: "/industries/office-supplies" },
+  { label: "Dropshipping", href: "/industries/dropshipping" },
+  { label: "Print on Demand", href: "/industries/print-on-demand" },
+  { label: "Wholesale & Liquidation", href: "/industries/wholesale-liquidation" },
+  { label: "Marketplace Arbitrage", href: "/industries/marketplace-arbitrage" },
+];
+
+const headerLocations = [
+  { label: "California", href: "/locations/california" },
+  { label: "Texas", href: "/locations/texas" },
+  { label: "New York", href: "/locations/new-york" },
+  { label: "Florida", href: "/locations/florida" },
+  { label: "Illinois", href: "/locations/illinois" },
+  { label: "Pennsylvania", href: "/locations/pennsylvania" },
+  { label: "Ohio", href: "/locations/ohio" },
+  { label: "Georgia", href: "/locations/georgia" },
+  { label: "North Carolina", href: "/locations/north-carolina" },
+  { label: "Michigan", href: "/locations/michigan" },
+  { label: "New Jersey", href: "/locations/new-jersey" },
+  { label: "Virginia", href: "/locations/virginia" },
+  { label: "Washington", href: "/locations/washington" },
+  { label: "Arizona", href: "/locations/arizona" },
+  { label: "Massachusetts", href: "/locations/massachusetts" },
 ];
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services", megaMenu: true },
-  { label: "Industries", href: "/industries", dropdown: true },
-  { label: "Locations", href: "/locations" },
+  { label: "Services", href: "/sitemap", megaMenu: true },
+  { label: "Industries", href: "/sitemap", dropdown: "industries" },
+  { label: "Locations", href: "/sitemap", dropdown: "locations" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
@@ -79,14 +110,12 @@ export default function Header() {
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
   const { open: openBooking } = useBookingModal();
 
-  /* Sticky header on scroll */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Lock body scroll when mobile menu is open */
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
@@ -94,7 +123,6 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  /* Dropdown hover helpers */
   const handleMouseEnter = (key: string) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setActiveDropdown(key);
@@ -108,9 +136,52 @@ export default function Header() {
     setMobileExpanded((prev) => (prev === key ? null : key));
   };
 
-  /* ---------------------------------------------------------------- */
-  /*  Render                                                           */
-  /* ---------------------------------------------------------------- */
+  /* Render a dropdown panel */
+  const renderDropdown = (key: string) => {
+    if (key === "industries") {
+      return (
+        <div className="w-[640px] rounded-xl border border-[#1A1A1A] bg-[#0A0A0A]/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
+          <div className="grid grid-cols-3 gap-x-6 gap-y-1">
+            {headerIndustries.map((ind) => (
+              <Link
+                key={ind.href}
+                href={ind.href}
+                className="block rounded-lg px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+              >
+                {ind.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    if (key === "locations") {
+      return (
+        <div className="w-[480px] rounded-xl border border-[#1A1A1A] bg-[#0A0A0A]/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
+          <div className="grid grid-cols-3 gap-x-6 gap-y-1">
+            {headerLocations.map((loc) => (
+              <Link
+                key={loc.href}
+                href={loc.href}
+                className="block rounded-lg px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+              >
+                {loc.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-4 border-t border-[#1A1A1A] pt-3">
+            <Link
+              href="/sitemap"
+              className="block text-center text-sm font-medium text-[#0066FF] transition-colors hover:text-[#0066FF]/80"
+            >
+              View All 50 States →
+            </Link>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
     <>
@@ -122,17 +193,14 @@ export default function Header() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          {/* ---- Logo ---- */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-1 z-10">
-            <span
-              className="text-2xl font-bold tracking-tight text-white"
-              style={{ fontFamily: "'Syne', sans-serif" }}
-            >
+            <span className="text-2xl font-bold tracking-tight text-white font-syne">
               Zeera<span className="text-[#0066FF]">a</span>
             </span>
           </Link>
 
-          {/* ---- Desktop Nav ---- */}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
               /* --- Services mega menu --- */
@@ -169,12 +237,9 @@ export default function Header() {
                             <div className="grid grid-cols-3 gap-6">
                               {serviceCategories.map((cat) => (
                                 <div key={cat.title}>
-                                  <Link
-                                    href={cat.href}
-                                    className="mb-3 block text-sm font-semibold text-[#0066FF]"
-                                  >
+                                  <span className="mb-3 block text-sm font-semibold text-[#0066FF]">
                                     {cat.title}
-                                  </Link>
+                                  </span>
                                   <ul className="space-y-2">
                                     {cat.items.map((item) => (
                                       <li key={item.href}>
@@ -192,10 +257,10 @@ export default function Header() {
                             </div>
                             <div className="mt-6 border-t border-[#1A1A1A] pt-4">
                               <Link
-                                href="/services"
+                                href="/sitemap"
                                 className="text-sm font-medium text-[#0066FF] transition-colors hover:text-[#0066FF]/80"
                               >
-                                View All Services &rarr;
+                                View All 38 Services →
                               </Link>
                             </div>
                           </div>
@@ -206,13 +271,14 @@ export default function Header() {
                 );
               }
 
-              /* --- Industries dropdown --- */
+              /* --- Industries / Locations dropdown --- */
               if (link.dropdown) {
+                const key = link.dropdown;
                 return (
                   <div
                     key={link.label}
                     className="relative"
-                    onMouseEnter={() => handleMouseEnter("industries")}
+                    onMouseEnter={() => handleMouseEnter(key)}
                     onMouseLeave={handleMouseLeave}
                   >
                     <Link
@@ -222,13 +288,13 @@ export default function Header() {
                       {link.label}
                       <ChevronDown
                         className={`h-4 w-4 transition-transform duration-200 ${
-                          activeDropdown === "industries" ? "rotate-180" : ""
+                          activeDropdown === key ? "rotate-180" : ""
                         }`}
                       />
                     </Link>
 
                     <AnimatePresence>
-                      {activeDropdown === "industries" && (
+                      {activeDropdown === key && (
                         <motion.div
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -236,28 +302,7 @@ export default function Header() {
                           transition={{ duration: 0.2 }}
                           className="absolute left-1/2 top-full pt-2 -translate-x-1/2"
                         >
-                          <div className="w-64 rounded-xl border border-[#1A1A1A] bg-[#0A0A0A]/95 backdrop-blur-xl p-4 shadow-2xl shadow-black/40">
-                            <ul className="space-y-1">
-                              {industries.map((ind) => (
-                                <li key={ind.href}>
-                                  <Link
-                                    href={ind.href}
-                                    className="block rounded-lg px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
-                                  >
-                                    {ind.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                            <div className="mt-3 border-t border-[#1A1A1A] pt-3">
-                              <Link
-                                href="/industries"
-                                className="block text-center text-sm font-medium text-[#0066FF] transition-colors hover:text-[#0066FF]/80"
-                              >
-                                View All Industries &rarr;
-                              </Link>
-                            </div>
-                          </div>
+                          {renderDropdown(key)}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -278,7 +323,7 @@ export default function Header() {
             })}
           </div>
 
-          {/* ---- Desktop CTA ---- */}
+          {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={openBooking}
@@ -289,7 +334,7 @@ export default function Header() {
             </button>
           </div>
 
-          {/* ---- Mobile hamburger ---- */}
+          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen((prev) => !prev)}
             className="relative z-10 lg:hidden rounded-lg p-2 text-gray-300 transition-colors hover:text-white"
@@ -334,14 +379,14 @@ export default function Header() {
             transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-40 flex flex-col bg-[#0A0A0A] lg:hidden"
           >
-            {/* Spacer for header height */}
             <div className="h-20 shrink-0" />
-
             <div className="flex-1 overflow-y-auto px-6 pb-8">
               <ul className="space-y-1">
                 {navLinks.map((link) => {
                   const isExpandable = link.megaMenu || link.dropdown;
-                  const sectionKey = link.megaMenu ? "services" : link.dropdown ? "industries" : "";
+                  const sectionKey = link.megaMenu
+                    ? "services"
+                    : link.dropdown || "";
                   const isExpanded = mobileExpanded === sectionKey;
 
                   if (isExpandable) {
@@ -380,7 +425,9 @@ export default function Header() {
                                           <li key={item.href}>
                                             <Link
                                               href={item.href}
-                                              onClick={() => setMobileOpen(false)}
+                                              onClick={() =>
+                                                setMobileOpen(false)
+                                              }
                                               className="block rounded-lg px-4 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
                                             >
                                               {item.label}
@@ -391,19 +438,19 @@ export default function Header() {
                                     </div>
                                   ))}
                                   <Link
-                                    href="/services"
+                                    href="/sitemap"
                                     onClick={() => setMobileOpen(false)}
                                     className="block px-4 py-2 text-sm font-medium text-[#0066FF]"
                                   >
-                                    View All Services &rarr;
+                                    View All 38 Services →
                                   </Link>
                                 </div>
                               )}
 
-                              {link.dropdown && (
+                              {link.dropdown === "industries" && (
                                 <div className="py-2 pl-4">
                                   <ul className="space-y-1">
-                                    {industries.map((ind) => (
+                                    {headerIndustries.slice(0, 12).map((ind) => (
                                       <li key={ind.href}>
                                         <Link
                                           href={ind.href}
@@ -416,11 +463,36 @@ export default function Header() {
                                     ))}
                                   </ul>
                                   <Link
-                                    href="/industries"
+                                    href="/sitemap"
                                     onClick={() => setMobileOpen(false)}
                                     className="block px-4 py-2 text-sm font-medium text-[#0066FF]"
                                   >
-                                    View All Industries &rarr;
+                                    View All 24 Industries →
+                                  </Link>
+                                </div>
+                              )}
+
+                              {link.dropdown === "locations" && (
+                                <div className="py-2 pl-4">
+                                  <ul className="space-y-1">
+                                    {headerLocations.map((loc) => (
+                                      <li key={loc.href}>
+                                        <Link
+                                          href={loc.href}
+                                          onClick={() => setMobileOpen(false)}
+                                          className="block rounded-lg px-4 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                                        >
+                                          {loc.label}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                  <Link
+                                    href="/sitemap"
+                                    onClick={() => setMobileOpen(false)}
+                                    className="block px-4 py-2 text-sm font-medium text-[#0066FF]"
+                                  >
+                                    View All 50 States →
                                   </Link>
                                 </div>
                               )}

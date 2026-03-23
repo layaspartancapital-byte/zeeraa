@@ -1,51 +1,52 @@
 import Link from "next/link";
 import { Linkedin, Twitter, Instagram, Youtube } from "lucide-react";
 
-const services = [
+const footerServices = [
   { label: "Amazon Store Management", href: "/services/amazon-store-management" },
   { label: "Shopify Store Development", href: "/services/shopify-store-development" },
-  { label: "Walmart Marketplace", href: "/services/walmart-marketplace" },
+  { label: "Walmart Marketplace", href: "/services/walmart-marketplace-management" },
+  { label: "TikTok Shop Management", href: "/services/tiktok-shop-management" },
   { label: "eBay Store Optimization", href: "/services/ebay-store-optimization" },
-  { label: "TikTok Shop", href: "/services/tiktok-shop" },
-  { label: "Amazon PPC & DSP", href: "/services/amazon-ppc-dsp" },
-  { label: "eCommerce SEO", href: "/services/ecommerce-seo" },
-  { label: "Product Listing Optimization", href: "/services/product-listing-optimization" },
+  { label: "Etsy Shop Management", href: "/services/etsy-shop-management" },
+  { label: "Amazon FBA Management", href: "/services/amazon-fba-management" },
+  { label: "Amazon PPC & Advertising", href: "/services/amazon-ppc-dsp-advertising" },
 ];
 
-const industries = [
+const footerIndustries = [
   { label: "Health & Wellness", href: "/industries/health-wellness" },
   { label: "Beauty & Skincare", href: "/industries/beauty-skincare" },
   { label: "Electronics", href: "/industries/electronics" },
+  { label: "Fashion & Apparel", href: "/industries/fashion-apparel" },
   { label: "Home & Kitchen", href: "/industries/home-kitchen" },
-  { label: "Fashion", href: "/industries/fashion" },
   { label: "Sports & Outdoors", href: "/industries/sports-outdoors" },
   { label: "Pet Supplies", href: "/industries/pet-supplies" },
-  { label: "Food & Beverage", href: "/industries/food-beverage" },
+  { label: "Supplements & Nutrition", href: "/industries/supplements-nutrition" },
 ];
 
-const locations = [
+const footerLocations = [
   { label: "California", href: "/locations/california" },
   { label: "Texas", href: "/locations/texas" },
-  { label: "Florida", href: "/locations/florida" },
   { label: "New York", href: "/locations/new-york" },
+  { label: "Florida", href: "/locations/florida" },
   { label: "Illinois", href: "/locations/illinois" },
   { label: "Pennsylvania", href: "/locations/pennsylvania" },
   { label: "Ohio", href: "/locations/ohio" },
   { label: "Georgia", href: "/locations/georgia" },
-  { label: "North Carolina", href: "/locations/north-carolina" },
   { label: "Michigan", href: "/locations/michigan" },
+  { label: "New Jersey", href: "/locations/new-jersey" },
 ];
 
 const company = [
   { label: "About", href: "/about" },
   { label: "Team", href: "/team" },
-  { label: "Blog", href: "/blog" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const legal = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
   { label: "Sitemap", href: "/sitemap" },
 ];
 
@@ -78,7 +79,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              {services.map((item) => (
+              {footerServices.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -88,6 +89,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-1">
+                <Link
+                  href="/sitemap"
+                  className="text-primary text-sm font-medium hover:text-primary-hover transition-colors"
+                >
+                  View All 38 Services →
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -95,7 +104,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Industries</h3>
             <ul className="space-y-2">
-              {industries.map((item) => (
+              {footerIndustries.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -105,6 +114,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-1">
+                <Link
+                  href="/sitemap"
+                  className="text-primary text-sm font-medium hover:text-primary-hover transition-colors"
+                >
+                  View All 24 Industries →
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -112,7 +129,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Locations</h3>
             <ul className="space-y-2">
-              {locations.map((item) => (
+              {footerLocations.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -122,6 +139,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-1">
+                <Link
+                  href="/sitemap"
+                  className="text-primary text-sm font-medium hover:text-primary-hover transition-colors"
+                >
+                  View All 50 States →
+                </Link>
+              </li>
             </ul>
           </div>
 

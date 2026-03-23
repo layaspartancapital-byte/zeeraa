@@ -47,7 +47,7 @@ export default function HomePage() {
   return (
     <>
       <SchemaMarkup schema={schemas} />
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen">
         <HeroSection />
         <VSLVideo />
         <PlatformTicker />
@@ -59,8 +59,8 @@ export default function HomePage() {
           <CaseStudiesPreview />
         </div>
         <IndustriesSection />
-        <LocationsSection />
         <TestimonialsSection />
+        <LocationsSection />
         <HomeFAQ faqs={homeFaqs} />
         <FinalCTA />
       </main>

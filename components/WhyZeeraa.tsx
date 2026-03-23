@@ -47,7 +47,8 @@ export default function WhyZeeraa() {
   const { ref, controls } = useScrollReveal();
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+      <div className="max-w-7xl mx-auto">
       <motion.div
         ref={ref}
         initial="hidden"
@@ -126,6 +127,7 @@ export default function WhyZeeraa() {
           </div>
         </motion.div>
       </motion.div>
+      </div>
     </section>
   );
 }

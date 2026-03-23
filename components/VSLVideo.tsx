@@ -7,7 +7,7 @@ export default function VSLVideo() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background"><div className="max-w-5xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -54,6 +54,6 @@ export default function VSLVideo() {
           />
         )}
       </motion.div>
-    </section>
+    </div></section>
   );
 }

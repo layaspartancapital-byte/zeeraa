@@ -42,13 +42,13 @@ const cardVariant = {
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-white">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-[#0A0A0A]">
             What Our Clients Say
           </h2>
-          <p className="mt-4 text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-[#555] text-lg max-w-2xl mx-auto">
             Trusted by 200+ brands across the United States.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
             <motion.div
               key={t.name}
               variants={cardVariant}
-              className="rounded-xl border border-border bg-card/60 backdrop-blur-sm p-8 hover:border-primary/40 transition-colors duration-300"
+              className="rounded-2xl border border-[#E5E7EB] bg-white p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               {/* Stars */}
               <div className="flex items-center gap-1 mb-4">
@@ -76,13 +76,13 @@ export default function TestimonialsSection() {
                 ))}
               </div>
 
-              <blockquote className="text-white text-sm leading-relaxed mb-6">
+              <blockquote className="text-[#333] text-sm leading-relaxed mb-6">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
               <div>
-                <p className="font-semibold text-white">{t.name}</p>
-                <p className="text-text-muted text-sm">
+                <p className="font-semibold text-[#0A0A0A]">{t.name}</p>
+                <p className="text-[#777] text-sm">
                   {t.role}, {t.company}
                 </p>
               </div>
