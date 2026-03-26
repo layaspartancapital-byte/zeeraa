@@ -25,19 +25,16 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden hero-gradient">
       {/* Dot pattern background */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-10"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #A0A0A0 1px, transparent 1px)",
+            "radial-gradient(circle, #A0B4D0 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
-
-      {/* Blue glow accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <motion.div
         variants={container}
@@ -56,7 +53,7 @@ export default function HeroSection() {
 
         <motion.p
           variants={fadeUp}
-          className="mt-6 text-text-muted text-lg max-w-3xl mx-auto leading-relaxed"
+          className="mt-6 text-[#A0B4D0] text-lg max-w-3xl mx-auto leading-relaxed"
         >
           Zeeraa manages your entire eCommerce presence across Amazon, Shopify,
           Walmart, TikTok Shop, and 30+ more US platforms — from day one to
@@ -69,13 +66,13 @@ export default function HeroSection() {
         >
           <button
             onClick={open}
-            className="px-8 py-4 bg-primary hover:bg-primary-hover text-white font-semibold rounded-lg transition-colors duration-200 text-lg shadow-glow"
+            className="px-8 py-4 bg-primary hover:bg-primary-hover text-white font-semibold rounded-lg transition-colors duration-200 text-lg"
           >
             Get a Free Audit
           </button>
           <button
             onClick={scrollToCaseStudies}
-            className="px-8 py-4 border border-border text-white font-semibold rounded-lg hover:border-primary/50 transition-colors duration-200 text-lg"
+            className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-colors duration-200 text-lg"
           >
             See Our Work
           </button>

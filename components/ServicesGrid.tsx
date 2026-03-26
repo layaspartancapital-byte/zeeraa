@@ -84,13 +84,13 @@ const cardVariant = {
 
 export default function ServicesGrid() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background-alt">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-[#0A0A0A]">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-text-primary">
             Our Services
           </h2>
-          <p className="mt-4 text-[#555] text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-text-muted text-lg max-w-2xl mx-auto">
             38 specialized eCommerce services to launch, manage, and scale your
             brand across every major US platform.
           </p>
@@ -109,15 +109,15 @@ export default function ServicesGrid() {
               <motion.div key={service.slug} variants={cardVariant}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group block h-full p-8 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300"
+                  className="group block h-full p-8 rounded-xl bg-white border border-border shadow-card hover:shadow-card-hover hover:border-primary hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-primary-light flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-syne font-bold text-[#0A0A0A] text-xl mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="font-syne font-bold text-text-primary text-xl mb-3 group-hover:text-primary transition-colors">
                     {service.name}
                   </h3>
-                  <p className="text-[#555] text-sm leading-relaxed mb-5">
+                  <p className="text-text-muted text-sm leading-relaxed mb-5">
                     {service.description}
                   </p>
                   <span className="text-primary text-sm font-semibold inline-flex items-center gap-1.5 group-hover:gap-3 transition-all">

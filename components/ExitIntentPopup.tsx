@@ -42,7 +42,7 @@ export default function ExitIntentPopup() {
         >
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-navy/70 backdrop-blur-sm"
             onClick={dismiss}
           />
 
@@ -52,12 +52,12 @@ export default function ExitIntentPopup() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="relative z-10 w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-glow-lg"
+            className="relative z-10 w-full max-w-md rounded-2xl border border-border bg-white p-8 shadow-card-hover"
           >
             {/* Close button */}
             <button
               onClick={dismiss}
-              className="absolute top-4 right-4 text-text-muted hover:text-white transition-colors"
+              className="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors"
               aria-label="Close popup"
             >
               <X className="w-5 h-5" />
@@ -65,10 +65,10 @@ export default function ExitIntentPopup() {
 
             {!submitted ? (
               <>
-                {/* Blue glow accent */}
+                {/* Blue accent line */}
                 <div className="absolute -top-px left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-                <h3 className="font-syne text-2xl font-bold text-white text-center">
+                <h3 className="font-syne text-2xl font-bold text-text-primary text-center">
                   Before You Go
                 </h3>
                 <p className="mt-1 font-syne text-lg font-bold text-primary text-center">
@@ -86,7 +86,7 @@ export default function ExitIntentPopup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 rounded-lg bg-background border border-border text-white placeholder:text-text-muted text-sm focus:outline-none focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-border text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,102,255,0.1)] transition-all"
                   />
                   <button
                     type="submit"
@@ -103,7 +103,7 @@ export default function ExitIntentPopup() {
               </>
             ) : (
               <div className="text-center py-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mx-auto mb-4">
                   <svg
                     className="w-6 h-6 text-primary"
                     fill="none"
@@ -118,7 +118,7 @@ export default function ExitIntentPopup() {
                     />
                   </svg>
                 </div>
-                <h3 className="font-syne text-xl font-bold text-white">
+                <h3 className="font-syne text-xl font-bold text-text-primary">
                   You&apos;re In!
                 </h3>
                 <p className="mt-2 text-text-muted text-sm">

@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${syne.variable} ${inter.variable} font-inter antialiased bg-background text-text-primary`}
+        className={`${syne.variable} ${inter.variable} font-inter antialiased bg-white text-text-body`}
       >
         <ClientProviders>
           <Header />

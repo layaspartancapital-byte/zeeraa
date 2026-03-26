@@ -69,18 +69,8 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://zeeraa.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "About",
-        item: "https://zeeraa.com/about",
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeeraa.com" },
+      { "@type": "ListItem", position: 2, name: "About", item: "https://zeeraa.com/about" },
     ],
   };
 
@@ -92,27 +82,20 @@ export default function AboutPage() {
     description:
       "Full-service eCommerce management agency helping brands scale across Amazon, Shopify, Walmart, and 35+ additional platforms.",
     sameAs: [],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      url: "https://zeeraa.com/contact",
-    },
+    contactPoint: { "@type": "ContactPoint", contactType: "sales", url: "https://zeeraa.com/contact" },
   };
 
   return (
     <>
-      <SchemaMarkup
-        schema={[webPageSchema, breadcrumbSchema, organizationSchema]}
-      />
+      <SchemaMarkup schema={[webPageSchema, breadcrumbSchema, organizationSchema]} />
 
       {/* Hero */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-40" />
+      <section className="relative py-24 md:py-32 overflow-hidden hero-gradient">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <h1 className="font-syne text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="font-syne text-4xl md:text-6xl font-bold text-white mb-6">
             About <span className="text-primary">Zeeraa</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-[#A0B4D0] max-w-3xl mx-auto leading-relaxed">
             Zeeraa is a full-service eCommerce management agency built for
             brands that want to scale everywhere — without the complexity.
             We handle strategy, operations, advertising, and growth across
@@ -122,12 +105,12 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="font-syne text-3xl md:text-4xl font-bold text-text-primary mb-6">
             Our Mission
           </h2>
-          <p className="text-xl md:text-2xl text-muted leading-relaxed">
+          <p className="text-xl md:text-2xl text-text-muted leading-relaxed">
             &ldquo;We exist to help eCommerce brands scale across every
             platform without the complexity.&rdquo;
           </p>
@@ -135,18 +118,18 @@ export default function AboutPage() {
       </section>
 
       {/* What We Do */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-background-alt">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-syne text-3xl md:text-4xl font-bold text-center mb-16">
+          <h2 className="font-syne text-3xl md:text-4xl font-bold text-text-primary text-center mb-16">
             What We Do
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {whatWeDo.map((item) => (
-              <div key={item.title} className="glass-card p-8">
+              <div key={item.title} className="bg-white border border-border rounded-xl p-8 shadow-card">
                 <h3 className="font-syne text-xl font-bold mb-4 text-primary">
                   {item.title}
                 </h3>
-                <p className="text-muted leading-relaxed">
+                <p className="text-text-body leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -156,15 +139,15 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 md:py-28 border-y border-border">
+      <section className="py-20 md:py-28 bg-primary">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <p className="font-syne text-4xl md:text-5xl font-bold text-primary mb-2">
+                <p className="font-syne text-4xl md:text-5xl font-bold text-white mb-2">
                   {stat.value}
                 </p>
-                <p className="text-muted text-lg">{stat.label}</p>
+                <p className="text-white/80 text-lg">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -172,18 +155,18 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-syne text-3xl md:text-4xl font-bold text-center mb-16">
+          <h2 className="font-syne text-3xl md:text-4xl font-bold text-text-primary text-center mb-16">
             Our Values
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {values.map((value) => (
-              <div key={value.title} className="glass-card p-8">
-                <h3 className="font-syne text-xl font-bold mb-3">
+              <div key={value.title} className="bg-white border border-border rounded-xl p-8 shadow-card">
+                <h3 className="font-syne text-xl font-bold mb-3 text-text-primary">
                   {value.title}
                 </h3>
-                <p className="text-muted leading-relaxed">
+                <p className="text-text-body leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -193,18 +176,18 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-primary">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="font-syne text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to scale?
           </h2>
-          <p className="text-muted text-lg mb-8">
+          <p className="text-white/80 text-lg mb-8">
             Book a call with our team and discover how Zeeraa can help your
             brand grow across every platform.
           </p>
           <a
             href="/contact"
-            className="inline-block bg-primary hover:bg-primary-hover text-white font-semibold px-8 py-4 rounded-full transition-colors"
+            className="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-lg transition-colors hover:bg-gray-100"
           >
             Book a Call
           </a>

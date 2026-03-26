@@ -140,13 +140,13 @@ export default function Header() {
   const renderDropdown = (key: string) => {
     if (key === "industries") {
       return (
-        <div className="w-[640px] rounded-xl border border-[#1A1A1A] bg-[#0A0A0A]/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
+        <div className="w-[640px] rounded-xl border border-border bg-white p-6 shadow-xl">
           <div className="grid grid-cols-3 gap-x-6 gap-y-1">
             {headerIndustries.map((ind) => (
               <Link
                 key={ind.href}
                 href={ind.href}
-                className="block rounded-lg px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                className="block rounded-lg px-3 py-2 text-sm text-text-muted transition-colors hover:bg-background-alt hover:text-primary"
               >
                 {ind.label}
               </Link>
@@ -157,22 +157,22 @@ export default function Header() {
     }
     if (key === "locations") {
       return (
-        <div className="w-[480px] rounded-xl border border-[#1A1A1A] bg-[#0A0A0A]/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
+        <div className="w-[480px] rounded-xl border border-border bg-white p-6 shadow-xl">
           <div className="grid grid-cols-3 gap-x-6 gap-y-1">
             {headerLocations.map((loc) => (
               <Link
                 key={loc.href}
                 href={loc.href}
-                className="block rounded-lg px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                className="block rounded-lg px-3 py-2 text-sm text-text-muted transition-colors hover:bg-background-alt hover:text-primary"
               >
                 {loc.label}
               </Link>
             ))}
           </div>
-          <div className="mt-4 border-t border-[#1A1A1A] pt-3">
+          <div className="mt-4 border-t border-border pt-3">
             <Link
               href="/sitemap"
-              className="block text-center text-sm font-medium text-[#0066FF] transition-colors hover:text-[#0066FF]/80"
+              className="block text-center text-sm font-medium text-primary transition-colors hover:text-primary-hover"
             >
               View All 50 States →
             </Link>
@@ -188,15 +188,15 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-md bg-[#0A0A0A]/80 border-b border-[#1A1A1A] shadow-lg shadow-black/10"
-            : "bg-transparent"
+            ? "bg-white border-b border-border shadow-sm"
+            : "bg-white border-b border-transparent"
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1 z-10">
-            <span className="text-2xl font-bold tracking-tight text-white font-syne">
-              Zeera<span className="text-[#0066FF]">a</span>
+            <span className="text-2xl font-bold tracking-tight text-primary font-syne">
+              Zeera<span className="text-primary">a</span>
             </span>
           </Link>
 
@@ -214,7 +214,7 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#333333] transition-colors hover:text-primary"
                     >
                       {link.label}
                       <ChevronDown
@@ -233,11 +233,11 @@ export default function Header() {
                           transition={{ duration: 0.2 }}
                           className="absolute left-1/2 top-full pt-2 -translate-x-1/2"
                         >
-                          <div className="w-[720px] rounded-xl border border-[#1A1A1A] bg-[#0A0A0A]/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
+                          <div className="w-[720px] rounded-xl border border-border bg-white p-6 shadow-xl">
                             <div className="grid grid-cols-3 gap-6">
                               {serviceCategories.map((cat) => (
                                 <div key={cat.title}>
-                                  <span className="mb-3 block text-sm font-semibold text-[#0066FF]">
+                                  <span className="mb-3 block text-sm font-semibold text-primary">
                                     {cat.title}
                                   </span>
                                   <ul className="space-y-2">
@@ -245,7 +245,7 @@ export default function Header() {
                                       <li key={item.href}>
                                         <Link
                                           href={item.href}
-                                          className="block text-sm text-gray-400 transition-colors hover:text-white"
+                                          className="block text-sm text-text-muted transition-colors hover:text-primary"
                                         >
                                           {item.label}
                                         </Link>
@@ -255,10 +255,10 @@ export default function Header() {
                                 </div>
                               ))}
                             </div>
-                            <div className="mt-6 border-t border-[#1A1A1A] pt-4">
+                            <div className="mt-6 border-t border-border pt-4">
                               <Link
                                 href="/sitemap"
-                                className="text-sm font-medium text-[#0066FF] transition-colors hover:text-[#0066FF]/80"
+                                className="text-sm font-medium text-primary transition-colors hover:text-primary-hover"
                               >
                                 View All 38 Services →
                               </Link>
@@ -283,7 +283,7 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#333333] transition-colors hover:text-primary"
                     >
                       {link.label}
                       <ChevronDown
@@ -315,7 +315,7 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                  className="px-3 py-2 text-sm font-medium text-[#333333] transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -327,7 +327,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={openBooking}
-              className="flex items-center gap-2 rounded-lg bg-[#0066FF] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#0066FF]/90 hover:shadow-lg hover:shadow-[#0066FF]/25"
+              className="flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary-hover"
             >
               <Phone className="h-4 w-4" />
               Book a Call
@@ -337,7 +337,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="relative z-10 lg:hidden rounded-lg p-2 text-gray-300 transition-colors hover:text-white"
+            className="relative z-10 lg:hidden rounded-lg p-2 text-text-body transition-colors hover:text-primary"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -377,7 +377,7 @@ export default function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 flex flex-col bg-[#0A0A0A] lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-white lg:hidden"
           >
             <div className="h-20 shrink-0" />
             <div className="flex-1 overflow-y-auto px-6 pb-8">
@@ -394,7 +394,7 @@ export default function Header() {
                       <li key={link.label}>
                         <button
                           onClick={() => toggleMobileSection(sectionKey)}
-                          className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-gray-300 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                          className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-text-body transition-colors hover:bg-background-alt hover:text-primary"
                         >
                           {link.label}
                           <ChevronDown
@@ -417,7 +417,7 @@ export default function Header() {
                                 <div className="space-y-4 py-2 pl-4">
                                   {serviceCategories.map((cat) => (
                                     <div key={cat.title}>
-                                      <span className="mb-2 block px-4 text-sm font-semibold text-[#0066FF]">
+                                      <span className="mb-2 block px-4 text-sm font-semibold text-primary">
                                         {cat.title}
                                       </span>
                                       <ul className="space-y-1">
@@ -428,7 +428,7 @@ export default function Header() {
                                               onClick={() =>
                                                 setMobileOpen(false)
                                               }
-                                              className="block rounded-lg px-4 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                                              className="block rounded-lg px-4 py-2 text-sm text-text-muted transition-colors hover:bg-background-alt hover:text-primary"
                                             >
                                               {item.label}
                                             </Link>
@@ -440,7 +440,7 @@ export default function Header() {
                                   <Link
                                     href="/sitemap"
                                     onClick={() => setMobileOpen(false)}
-                                    className="block px-4 py-2 text-sm font-medium text-[#0066FF]"
+                                    className="block px-4 py-2 text-sm font-medium text-primary"
                                   >
                                     View All 38 Services →
                                   </Link>
@@ -455,7 +455,7 @@ export default function Header() {
                                         <Link
                                           href={ind.href}
                                           onClick={() => setMobileOpen(false)}
-                                          className="block rounded-lg px-4 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                                          className="block rounded-lg px-4 py-2 text-sm text-text-muted transition-colors hover:bg-background-alt hover:text-primary"
                                         >
                                           {ind.label}
                                         </Link>
@@ -465,7 +465,7 @@ export default function Header() {
                                   <Link
                                     href="/sitemap"
                                     onClick={() => setMobileOpen(false)}
-                                    className="block px-4 py-2 text-sm font-medium text-[#0066FF]"
+                                    className="block px-4 py-2 text-sm font-medium text-primary"
                                   >
                                     View All 24 Industries →
                                   </Link>
@@ -480,7 +480,7 @@ export default function Header() {
                                         <Link
                                           href={loc.href}
                                           onClick={() => setMobileOpen(false)}
-                                          className="block rounded-lg px-4 py-2 text-sm text-gray-400 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                                          className="block rounded-lg px-4 py-2 text-sm text-text-muted transition-colors hover:bg-background-alt hover:text-primary"
                                         >
                                           {loc.label}
                                         </Link>
@@ -490,7 +490,7 @@ export default function Header() {
                                   <Link
                                     href="/sitemap"
                                     onClick={() => setMobileOpen(false)}
-                                    className="block px-4 py-2 text-sm font-medium text-[#0066FF]"
+                                    className="block px-4 py-2 text-sm font-medium text-primary"
                                   >
                                     View All 50 States →
                                   </Link>
@@ -508,7 +508,7 @@ export default function Header() {
                       <Link
                         href={link.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block rounded-lg px-4 py-3 text-lg font-medium text-gray-300 transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                        className="block rounded-lg px-4 py-3 text-lg font-medium text-text-body transition-colors hover:bg-background-alt hover:text-primary"
                       >
                         {link.label}
                       </Link>
@@ -518,13 +518,13 @@ export default function Header() {
               </ul>
 
               {/* Mobile CTA */}
-              <div className="mt-8 border-t border-[#1A1A1A] pt-8">
+              <div className="mt-8 border-t border-border pt-8">
                 <button
                   onClick={() => {
                     setMobileOpen(false);
                     openBooking();
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#0066FF] px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-[#0066FF]/90"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-primary-hover"
                 >
                   <Phone className="h-5 w-5" />
                   Book a Call

@@ -27,7 +27,7 @@ export default function FloatingCTA() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={open}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-hover text-white font-semibold rounded-full shadow-glow-lg transition-colors duration-200"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-hover text-white font-semibold rounded-full shadow-card-hover transition-colors duration-200"
         >
           <motion.span
             animate={{ scale: [1, 1.15, 1] }}

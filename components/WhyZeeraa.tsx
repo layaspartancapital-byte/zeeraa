@@ -47,7 +47,7 @@ export default function WhyZeeraa() {
   const { ref, controls } = useScrollReveal();
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background-tint">
       <div className="max-w-7xl mx-auto">
       <motion.div
         ref={ref}
@@ -65,7 +65,7 @@ export default function WhyZeeraa() {
           }}
           className="text-center mb-16"
         >
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-text-primary mb-4">
             Why Zeeraa
           </h2>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ export default function WhyZeeraa() {
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="glass-card overflow-hidden"
+          className="bg-white border border-border rounded-2xl shadow-card overflow-hidden"
         >
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -102,7 +102,7 @@ export default function WhyZeeraa() {
               <tbody>
                 {comparisons.map((row, i) => (
                   <tr key={i} className="border-b border-border last:border-0">
-                    <td className="p-4 text-white">{row.feature}</td>
+                    <td className="p-4 text-text-primary">{row.feature}</td>
                     <td className="p-4 text-center">
                       <Check className="w-5 h-5 text-success mx-auto" />
                     </td>

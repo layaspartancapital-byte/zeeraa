@@ -13,14 +13,14 @@ html {
 }
 
 body {
-  color: #FFFFFF;
-  background: #0A0A0A;
+  color: #444444;
+  background: #FFFFFF;
   font-family: var(--font-inter), sans-serif;
 }
 
 ::selection {
-  background: rgba(0, 102, 255, 0.3);
-  color: #FFFFFF;
+  background: rgba(0, 102, 255, 0.2);
+  color: #0A0A0A;
 }
 
 ::-webkit-scrollbar {
@@ -28,36 +28,26 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #F5F7FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1A1A1A;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: #94A3B8;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  .glass-card {
-    @apply bg-card/80 backdrop-blur-md border border-border rounded-2xl;
+  .light-card {
+    @apply bg-white border border-border rounded-2xl shadow-card;
   }
-  .blue-glow {
-    box-shadow: 0 0 40px rgba(0, 102, 255, 0.15);
-  }
-  .dot-pattern {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
-  .grid-pattern {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
+  .hero-gradient {
+    background: linear-gradient(135deg, #0A1628 0%, #0D2350 50%, #0A1628 100%);
   }
 }

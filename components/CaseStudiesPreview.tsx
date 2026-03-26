@@ -52,10 +52,10 @@ export default function CaseStudiesPreview() {
     <section id="case-studies" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-[#0A0A0A]">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-text-primary">
             Case Studies
           </h2>
-          <p className="mt-4 text-[#555] text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-text-muted text-lg max-w-2xl mx-auto">
             Real results for real brands. See how Zeeraa drives measurable
             eCommerce growth.
           </p>
@@ -72,23 +72,23 @@ export default function CaseStudiesPreview() {
             <motion.div
               key={study.brand}
               variants={cardVariant}
-              className="rounded-2xl border border-[#E5E7EB] bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="rounded-xl border border-border bg-white p-8 shadow-card hover:shadow-card-hover hover:border-primary hover:-translate-y-0.5 transition-all duration-300"
             >
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary-light text-primary mb-4">
                 {study.platform}
               </span>
-              <h3 className="font-syne text-xl font-bold text-[#0A0A0A] mb-2">
+              <h3 className="font-syne text-xl font-bold text-text-primary mb-2">
                 {study.brand}
               </h3>
               <div className="mb-4">
                 <span className="text-primary font-syne font-bold text-4xl">
                   {study.metric}
                 </span>
-                <span className="block text-[#777] text-sm mt-1">
+                <span className="block text-text-muted text-sm mt-1">
                   {study.metricLabel} in {study.timeframe}
                 </span>
               </div>
-              <p className="text-[#555] text-sm leading-relaxed">
+              <p className="text-text-body text-sm leading-relaxed">
                 {study.description}
               </p>
             </motion.div>

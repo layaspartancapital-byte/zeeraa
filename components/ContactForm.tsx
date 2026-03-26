@@ -58,11 +58,11 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="glass-card p-8 text-center">
+      <div className="bg-white border border-border rounded-2xl shadow-card p-8 text-center">
         <h3 className="font-syne text-2xl font-bold mb-4 text-primary">
           Message Sent!
         </h3>
-        <p className="text-muted">
+        <p className="text-text-muted">
           Thank you for reaching out. Our team will get back to you within 24
           hours.
         </p>
@@ -74,7 +74,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-1.5">
+        <label htmlFor="name" className="block text-sm font-medium text-[#333333] mb-1.5">
           Name <span className="text-primary">*</span>
         </label>
         <input
@@ -82,7 +82,7 @@ export default function ContactForm() {
           type="text"
           placeholder="Your full name"
           {...register("name")}
-          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder:text-muted focus:border-primary focus:outline-none transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,102,255,0.1)] focus:outline-none transition-all"
         />
         {errors.name && (
           <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -91,7 +91,7 @@ export default function ContactForm() {
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1.5">
+        <label htmlFor="email" className="block text-sm font-medium text-[#333333] mb-1.5">
           Email <span className="text-primary">*</span>
         </label>
         <input
@@ -99,7 +99,7 @@ export default function ContactForm() {
           type="email"
           placeholder="you@company.com"
           {...register("email")}
-          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder:text-muted focus:border-primary focus:outline-none transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,102,255,0.1)] focus:outline-none transition-all"
         />
         {errors.email && (
           <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -108,7 +108,7 @@ export default function ContactForm() {
 
       {/* Phone */}
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium mb-1.5">
+        <label htmlFor="phone" className="block text-sm font-medium text-[#333333] mb-1.5">
           Phone
         </label>
         <input
@@ -116,13 +116,13 @@ export default function ContactForm() {
           type="tel"
           placeholder="(555) 000-0000"
           {...register("phone")}
-          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder:text-muted focus:border-primary focus:outline-none transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,102,255,0.1)] focus:outline-none transition-all"
         />
       </div>
 
       {/* Company */}
       <div>
-        <label htmlFor="company" className="block text-sm font-medium mb-1.5">
+        <label htmlFor="company" className="block text-sm font-medium text-[#333333] mb-1.5">
           Company
         </label>
         <input
@@ -130,19 +130,19 @@ export default function ContactForm() {
           type="text"
           placeholder="Your company name"
           {...register("company")}
-          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder:text-muted focus:border-primary focus:outline-none transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,102,255,0.1)] focus:outline-none transition-all"
         />
       </div>
 
       {/* Platform */}
       <div>
-        <label htmlFor="platform" className="block text-sm font-medium mb-1.5">
+        <label htmlFor="platform" className="block text-sm font-medium text-[#333333] mb-1.5">
           Platform <span className="text-primary">*</span>
         </label>
         <select
           id="platform"
           {...register("platform")}
-          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-text-primary focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,102,255,0.1)] focus:outline-none transition-all"
         >
           <option value="">Select a platform</option>
           {platformOptions.map((p) => (
@@ -160,7 +160,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-1.5">
+        <label htmlFor="message" className="block text-sm font-medium text-[#333333] mb-1.5">
           Message <span className="text-primary">*</span>
         </label>
         <textarea
@@ -168,7 +168,7 @@ export default function ContactForm() {
           rows={5}
           placeholder="Tell us about your brand and goals..."
           {...register("message")}
-          className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder:text-muted focus:border-primary focus:outline-none transition-colors resize-none"
+          className="w-full bg-white border border-border rounded-lg px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,102,255,0.1)] focus:outline-none transition-all resize-none"
         />
         {errors.message && (
           <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
@@ -178,7 +178,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-primary hover:bg-primary-hover disabled:opacity-50 text-white font-semibold px-8 py-4 rounded-full transition-colors"
+        className="w-full bg-primary hover:bg-primary-hover disabled:opacity-50 text-white font-semibold px-8 py-4 rounded-lg transition-colors"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>

@@ -59,7 +59,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-navy border-t border-navy-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Brand section */}
         <div className="mb-12">
@@ -68,7 +68,7 @@ export default function Footer() {
               Zeera<span className="text-primary">a</span>
             </span>
           </Link>
-          <p className="mt-3 text-text-muted text-sm max-w-md">
+          <p className="mt-3 text-[#8899AA] text-sm max-w-md">
             Full-Stack eCommerce. Every Platform. Every Result.
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-text-muted text-sm hover:text-white transition-colors"
+                    className="text-[#8899AA] text-sm hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -108,7 +108,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-text-muted text-sm hover:text-white transition-colors"
+                    className="text-[#8899AA] text-sm hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -133,7 +133,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-text-muted text-sm hover:text-white transition-colors"
+                    className="text-[#8899AA] text-sm hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -158,7 +158,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-text-muted text-sm hover:text-white transition-colors"
+                    className="text-[#8899AA] text-sm hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -175,7 +175,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-text-muted text-sm hover:text-white transition-colors"
+                    className="text-[#8899AA] text-sm hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -187,9 +187,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-border">
+      <div className="border-t border-navy-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-text-muted text-sm">
+          <p className="text-[#8899AA] text-sm">
             &copy; 2025 Zeeraa. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
@@ -198,7 +198,7 @@ export default function Footer() {
                 key={social.label}
                 href={social.href}
                 aria-label={social.label}
-                className="text-text-muted hover:text-white transition-colors"
+                className="text-[#8899AA] hover:text-white transition-colors"
               >
                 <social.icon className="w-5 h-5" />
               </Link>

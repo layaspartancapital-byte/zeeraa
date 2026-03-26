@@ -51,18 +51,8 @@ export default function BlogPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://zeeraa.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blog",
-        item: "https://zeeraa.com/blog",
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeeraa.com" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://zeeraa.com/blog" },
     ],
   };
 
@@ -70,28 +60,23 @@ export default function BlogPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "eCommerce Blog | Zeeraa",
-    description:
-      "Expert insights on Amazon, TikTok Shop, Walmart, and eCommerce growth strategies.",
+    description: "Expert insights on Amazon, TikTok Shop, Walmart, and eCommerce growth strategies.",
     url: "https://zeeraa.com/blog",
-    isPartOf: {
-      "@type": "WebSite",
-      name: "Zeeraa",
-      url: "https://zeeraa.com",
-    },
+    isPartOf: { "@type": "WebSite", name: "Zeeraa", url: "https://zeeraa.com" },
   };
 
   return (
     <>
       <SchemaMarkup schema={[breadcrumbSchema, webpageSchema]} />
 
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen bg-white">
         {/* Header */}
-        <section className="pt-32 pb-16 px-6">
+        <section className="pt-32 pb-16 px-6 hero-gradient">
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               eCommerce Blog
             </h1>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-[#A0B4D0] max-w-2xl mx-auto">
               Expert insights on Amazon, TikTok Shop, Walmart, and eCommerce
               growth strategies from the Zeeraa team.
             </p>
@@ -99,7 +84,7 @@ export default function BlogPage() {
         </section>
 
         {/* Blog Grid */}
-        <section className="pb-24 px-6">
+        <section className="pb-24 px-6 pt-16 bg-background-alt">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <Link
@@ -107,13 +92,13 @@ export default function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="group block"
               >
-                <article className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-white/20 hover:bg-white/10">
+                <article className="h-full rounded-xl border border-border bg-white p-6 shadow-card transition-all duration-300 hover:shadow-card-hover hover:border-primary hover:-translate-y-0.5">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xs font-medium uppercase tracking-wider text-blue-400 bg-blue-400/10 px-3 py-1 rounded-full">
+                    <span className="text-xs font-medium uppercase tracking-wider text-primary bg-primary-light px-3 py-1 rounded-full">
                       {post.category}
                     </span>
                     <time
-                      className="text-xs text-gray-500"
+                      className="text-xs text-text-muted"
                       dateTime={post.date}
                     >
                       {new Date(post.date).toLocaleDateString("en-US", {
@@ -124,15 +109,15 @@ export default function BlogPage() {
                     </time>
                   </div>
 
-                  <h2 className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors">
+                  <h2 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-primary transition-colors">
                     {post.title}
                   </h2>
 
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <p className="text-sm text-text-muted leading-relaxed">
                     {post.excerpt}
                   </p>
 
-                  <div className="mt-4 text-sm text-blue-400 font-medium">
+                  <div className="mt-4 text-sm text-primary font-medium">
                     Read more &rarr;
                   </div>
                 </article>

@@ -24,10 +24,10 @@ export default function HomeFAQ({ faqs }: HomeFAQProps) {
           }}
         >
           <div className="text-center mb-12">
-            <h2 className="font-syne text-3xl md:text-5xl font-bold text-[#0A0A0A] mb-4">
+            <h2 className="font-syne text-3xl md:text-5xl font-bold text-text-primary mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-[#555] text-lg max-w-2xl mx-auto">
+            <p className="text-text-muted text-lg max-w-2xl mx-auto">
               Everything you need to know about working with Zeeraa.
             </p>
           </div>

@@ -28,14 +28,14 @@ export default function FAQAccordionLight({ faqs }: FAQAccordionLightProps) {
         return (
           <div
             key={index}
-            className="border-b border-[#E5E7EB] last:border-b-0"
+            className="border-b border-border last:border-b-0"
           >
             <button
               onClick={() => toggle(index)}
               className="w-full flex items-center justify-between py-5 text-left group"
               aria-expanded={isOpen}
             >
-              <span className="text-[#0A0A0A] font-medium text-base pr-4 group-hover:text-primary transition-colors">
+              <span className="text-text-primary font-medium text-base pr-4 group-hover:text-primary transition-colors">
                 {faq.question}
               </span>
               <motion.span
@@ -43,7 +43,7 @@ export default function FAQAccordionLight({ faqs }: FAQAccordionLightProps) {
                 transition={{ duration: 0.25, ease: "easeInOut" }}
                 className="flex-shrink-0"
               >
-                <ChevronDown className="w-5 h-5 text-[#999]" />
+                <ChevronDown className="w-5 h-5 text-text-muted" />
               </motion.span>
             </button>
 
@@ -56,7 +56,7 @@ export default function FAQAccordionLight({ faqs }: FAQAccordionLightProps) {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-5 text-[#555] text-sm leading-relaxed">
+                  <p className="pb-5 text-text-body text-sm leading-relaxed">
                     {faq.answer}
                   </p>
                 </motion.div>

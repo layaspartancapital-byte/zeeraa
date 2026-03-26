@@ -9,7 +9,7 @@ export default function IndustriesSection() {
   const { ref, controls } = useScrollReveal();
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
       <motion.div
         ref={ref}
@@ -27,7 +27,7 @@ export default function IndustriesSection() {
           }}
           className="text-center mb-12"
         >
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-text-primary mb-4">
             Industries We Serve
           </h2>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">
@@ -50,7 +50,7 @@ export default function IndustriesSection() {
             >
               <Link
                 href={`/industries/${industry.slug}`}
-                className="inline-block px-5 py-3 glass-card text-sm text-text-muted hover:text-white hover:shadow-glow hover:border-primary/30 transition-all duration-300"
+                className="inline-block px-5 py-3 bg-primary-light text-primary text-sm rounded-full border border-transparent hover:bg-primary hover:text-white transition-all duration-300"
               >
                 {industry.name}
               </Link>

@@ -24,13 +24,13 @@ const item = {
 
 export default function StatsBar() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary">
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-50px" }}
-        className="max-w-5xl mx-auto rounded-2xl border border-border bg-card/60 backdrop-blur-sm shadow-glow p-8 md:p-12"
+        className="max-w-5xl mx-auto p-8 md:p-12"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat) => (
@@ -39,10 +39,10 @@ export default function StatsBar() {
               variants={item}
               className="text-center"
             >
-              <p className="text-primary font-syne font-bold text-3xl md:text-4xl lg:text-5xl">
+              <p className="text-white font-syne font-bold text-3xl md:text-4xl lg:text-5xl">
                 {stat.value}
               </p>
-              <p className="mt-2 text-text-muted text-sm md:text-base">
+              <p className="mt-2 text-white/80 text-sm md:text-base">
                 {stat.label}
               </p>
             </motion.div>

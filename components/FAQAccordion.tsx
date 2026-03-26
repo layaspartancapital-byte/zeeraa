@@ -35,7 +35,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
               className="w-full flex items-center justify-between py-5 text-left group"
               aria-expanded={isOpen}
             >
-              <span className="text-white font-medium text-base pr-4 group-hover:text-primary transition-colors">
+              <span className="text-text-primary font-medium text-base pr-4 group-hover:text-primary transition-colors">
                 {faq.question}
               </span>
               <motion.span
@@ -56,7 +56,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-5 text-text-muted text-sm leading-relaxed">
+                  <p className="pb-5 text-text-body text-sm leading-relaxed">
                     {faq.answer}
                   </p>
                 </motion.div>

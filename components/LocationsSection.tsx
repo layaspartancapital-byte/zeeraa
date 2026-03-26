@@ -9,7 +9,7 @@ export default function LocationsSection() {
   const { ref, controls } = useScrollReveal();
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background-alt">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
@@ -27,7 +27,7 @@ export default function LocationsSection() {
             }}
             className="text-center mb-12"
           >
-            <h2 className="font-syne text-3xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="font-syne text-3xl md:text-5xl font-bold text-text-primary mb-4">
               Serving eCommerce Brands Across All 50 States
             </h2>
             <p className="text-text-muted text-lg max-w-2xl mx-auto">
@@ -51,7 +51,7 @@ export default function LocationsSection() {
               >
                 <Link
                   href={`/locations/${location.slug}`}
-                  className="inline-block px-4 py-2 rounded-lg border border-primary/20 text-white text-sm hover:bg-primary hover:border-primary hover:text-white transition-all duration-200"
+                  className="inline-block px-4 py-2 rounded-lg border border-border text-text-body text-sm bg-white hover:bg-primary hover:border-primary hover:text-white transition-all duration-200"
                 >
                   {location.name}
                 </Link>
